@@ -18,6 +18,7 @@
 
     <section>
       <p>{{FoundEmployee.name}}</p>
+      <img v-bind:src="FoundEmployee.image" width="500" height="300"/>
     </section>
   </div>
 </template>
@@ -40,7 +41,7 @@ export default class Employee extends Vue {
   constructor() {
     super();
     this.welcomeMessage = "Welcome to ToDo App!";
-    this.employee = new EmployeeModel("");
+    this.employee = new EmployeeModel("", "");
     this.findText = "";
     this.message = "";
   }
@@ -50,11 +51,9 @@ export default class Employee extends Vue {
     return foundEmployee;
   }
 
-
   find() {
     console.log("in find: " + this.findText);
-	this.$store.dispatch("find", this.findText)
-		.then();
+    this.$store.dispatch("find", this.findText).then();
     this.findText = "";
   }
 }
