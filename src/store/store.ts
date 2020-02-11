@@ -15,9 +15,10 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		find(context, employeeModel: EmployeeModel) {
+		find(context, findText: string) {
+			console.log('In store: ' + findText);
 			return new Promise((resolve, reject) => {
-				context.commit('setEmployee', employeeModel);
+				context.commit('setEmployee', new EmployeeModel(findText + ' Rishad Omar'));
 				resolve();
 			});
 		},

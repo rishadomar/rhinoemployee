@@ -1,7 +1,7 @@
 export default class EmployeeModel {
   name: string;
 
-  constructor() {
-    this.name = '';
+  constructor(name: string) {
+    this.name = name;
   }
 }

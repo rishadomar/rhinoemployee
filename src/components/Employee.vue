@@ -8,7 +8,7 @@
       <div class="form-group row">
         <label for="Name" class="col-sm-1">Name</label>
         <div class="col-sm-4">
-          <input type="text" id="Name" v-model="model.name" class="form-control">
+          <input type="text" id="Name" v-model="findText" class="form-control" />
         </div>
       </div>
       <div>
@@ -17,16 +17,15 @@
     </div>
 
     <section>
-		<p>{{employee.name}}</p>
+      <p>{{FoundEmployee.name}}</p>
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import ToDoModel from "@/models/EmployeeModel";
 import store from "@/store/store";
-import EmployeeModel from '@/models/EmployeeModel';
+import EmployeeModel from "@/models/EmployeeModel";
 
 @Component({
   components: {}
@@ -36,21 +35,28 @@ export default class Employee extends Vue {
   private message: string;
   private employee: EmployeeModel;
 
-  private model: EmployeeModel;
+  private findText: string;
 
   constructor() {
     super();
     this.welcomeMessage = "Welcome to ToDo App!";
-    this.employee = new EmployeeModel();
-    this.model = new EmployeeModel();
+    this.employee = new EmployeeModel("");
+    this.findText = "";
     this.message = "";
   }
 
-  find() {
-	this.$store.dispatch("find", this.model);
-    this.model = new EmployeeModel();
+  get FoundEmployee(): EmployeeModel[] {
+    const foundEmployee = this.$store.state.employee;
+    return foundEmployee;
   }
 
+
+  find() {
+    console.log("in find: " + this.findText);
+	this.$store.dispatch("find", this.findText)
+		.then();
+    this.findText = "";
+  }
 }
 </script>
 
