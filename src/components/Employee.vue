@@ -40,7 +40,7 @@ export default class Employee extends Vue {
 
   constructor() {
     super();
-    this.welcomeMessage = "Welcome to ToDo App!";
+    this.welcomeMessage = "Welcome to Rhino Vue App!";
     this.employee = new EmployeeModel("", "");
     this.findText = "";
     this.message = "";

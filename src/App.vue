@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Employee msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Vue logo" src="./assets/rhino-logo.svg" width="500" height="300">
+    <Employee msg="Welcome to Rhino Vue App"/>
   </div>
 </template>
 
