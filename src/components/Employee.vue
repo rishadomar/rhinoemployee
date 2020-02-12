@@ -18,7 +18,7 @@
 
     <section>
       <p>{{FoundEmployee.name}}</p>
-      <img v-bind:src="FoundEmployee.image" width="500" height="300"/>
+      <img v-bind:src="FoundEmployee.image" width="800" height="700"/>
     </section>
   </div>
 </template>

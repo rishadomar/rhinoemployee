@@ -20,12 +20,12 @@ export default new Vuex.Store({
 		find(context, findText: string) {
 			console.log('In store: ' + findText);
 			axios
-				.get('http://localhost:8081/api/v1/employee?name=' + findText)
+				.get('http://localhost:8080/api/v1/employee?name=' + findText)
 //				.then(r => r.data)
 				.then(response => {
 					const employeeEntries = response.data;
 					const firstEmployee = employeeEntries[0];
-					context.commit('setEmployee', new EmployeeModel(firstEmployee.firstName + ' ' + firstEmployee.lastName, firstEmployee.image))
+					context.commit('setEmployee', new EmployeeModel(firstEmployee.firstName + ' ' + firstEmployee.lastName, firstEmployee.cardImage))
 				});
 		},
 
